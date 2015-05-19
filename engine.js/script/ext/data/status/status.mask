@@ -1,4 +1,0 @@
-	loading	: 0
-,	ready	: 1
-,	active	: 2
-,	error	: 4
