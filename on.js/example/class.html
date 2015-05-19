@@ -1,0 +1,99 @@
+<!html>
+
+
+<script src='../script/lib/on.js'></script>
+<script>
+
+onload = function()
+{	
+
+	/*
+	
+	Example Uses
+	
+	*/
+	
+	var myElement = document.getElementById('container');
+	
+console.log
+(
+	on.document.eachElementByClassPrefix
+	(	'my-example'
+	,	function(i)
+		{
+			console.log(i);
+			console.log(this[i]);
+		}
+	)
+);
+
+console.log
+(
+	on.document.eachElementByClassSuffix
+	(	'className1'
+	,	function(i)
+		{
+			console.log(i);
+			console.log(this[i]);
+		}
+	)
+);
+
+console.log
+(
+	on.document.getElementsByClassName('my-example-className')
+);
+	
+console.log
+(
+	on.document.getElementsByClassPrefix('my-example')
+);
+
+console.log
+(
+	on.document.getElementsByClassSuffix('className3')
+);
+
+console.log('a');
+console.log
+(
+
+	document.querySelectorAll('[class^=my-example]')
+
+);
+
+
+
+
+
+
+
+
+	
+};
+
+
+</script>
+
+
+<body>
+
+	<div id="container" class='my-example-className my-example-className3 my-example-className1' my-example-attribute='my-false-value'>
+	
+		<div class='div2'>
+			<span class='span my-example-className1' my-example-attribute='my-example-value'>
+			</span>
+		</div>
+	</div>
+
+	<div id="container2" class='my-example-className my-example-className3 my-example-className1' my-example-attribute='my-false-value'>
+	
+		<div class='div2'>
+			<span class='span my-example-className3' my-example-attribute='my-example-value'>
+			</span>
+		</div>
+	</div>
+
+</body>
+
+</html>

@@ -1,0 +1,331 @@
+<html>
+
+
+<script src='../script/lib/on.js'></script>
+<script>
+
+onload = function()
+{	
+
+	/*
+	
+	Example Uses
+	
+	*/
+
+
+	/***** easy names *****/
+	var myElement = (document);
+	var myHostList = (document.getElementsByTagName('*'));
+	var myInteger = 444;
+	var myString  = 'silly string';
+	var myArray   = [myString,myInteger];
+	var myObject  = {'444':myString};
+
+	var myCommand;
+	/***** module code *****/
+
+	/*****************************************/
+		console.log('_______Tools_______');
+	/*****************************************/	
+	console.log(		'typeof'[on](4)()																							);
+
+	/*****************************************/
+		console.log('_______Events_______');
+	/*****************************************/	
+	('mouseup')[on](myElement)
+	(	function(e)
+		{
+			console.log(e);
+			on.event.stopPropagation.call(e);
+			on.event.preventDefault.call(e);
+		}
+	);
+	
+	('click')[on](document)
+	(	function(e)
+		{
+			console.log(e);
+			if((e.srcElement||e.target).id=='my-example-id')
+			{
+				
+			}
+		}
+	);
+	
+	/*****************************************/
+		console.log('_______Numbers_______');
+	/*****************************************/
+
+
+	/*****************************************/
+		console.log('_______Strings_______');
+	/*****************************************/
+
+
+	/*****************************************/
+		console.log('_______Arrays_______');
+	/*****************************************/
+	console.log(		'slice'[on](myArray)()																						);
+	console.log(		'slice'[on](myString)()																						);
+	console.log(		'slice'[on](myElement)()																					);
+	console.log(		'slice'[on](myHostList)()																					);
+	console.log(		'slice'[on](myHostList)(1)																					);
+	console.log(		'slice'[on](myHostList)(-2)																					);
+	console.log(		'slice'[on](myHostList)(0,1)																				);	
+	/*****************************************/
+		console.log('_______Objects_______');
+	/*****************************************/
+	console.log(		'count'[on](myObject)()																						);
+	console.log(		'count'[on](myObject)(0)																					);
+	console.log(		'count'[on](myObject)(0,true)																				);
+
+	'for each'[on](myObject)
+	(	function(name)
+		{
+			console.log(name + ' == ' + this[name]);
+			return false;
+		}
+	);
+
+	/*****************************************/
+		console.log('_______Elements_______');
+	/*****************************************/
+	
+	console.log(		'for each child div'[on](document)(function(i){console.log(i+'c-->');console.log(this[i])})					);
+	console.log(		'for each div'[on](document)(function(i){console.log(i+'*-->');console.log(this[i])})						);
+
+	console.log(		'new element'[on](document.body)('div','superClass','testId')												);	
+	console.log(		'new div'[on](document)('superClass','testId')																);	
+
+	console.log(		'nextElementSibling'[on](document.getElementById('container'))()											);
+	console.log(		'offsetTop'[on](document.getElementById('container2'))()													);
+	console.log(		'offsetLeft'[on](document.getElementById('container2'))()													);
+
+	'new class'[on](myElement)('my-example-class1 my-example-class2');
+	'del class'[on](myElement)('my-example-class1 my-example-class2 my-example-class3');
+
+	'div'[on](myElement)
+	(	'my-example-class'
+	,	'my-example-id'
+	);
+/* JQWERY comparison
+	$(myElement).find('.abc[monkey-wrench^=p]').each
+	(	function(i)
+		{
+			$(this);
+		}
+	);
+*/
+	'.abc[monkey-wrench^=p]'[on](myElement)
+	(	function(i)
+		{
+			this[i];
+		}
+	);
+
+	console.log('<SPANS>');
+	'for each span'[on](myElement)
+	(	function(i)
+		{
+			console.log('child'+i);
+			console.log(this[i]);
+			console.log('offsetTop='+ 'offsetTop'[on](this[i])('px') );
+		}
+	);
+	console.log('</SPANS>');
+
+	var abc = 'abc';
+
+	'for each'[on](myElement)
+	(	function(i)
+		{
+			var test; 
+			console.log(abc+'defgh');
+			console.log('[NON-STRICT TESTING]');
+			
+			'className'[on](this[i])('my-example-className')							//check if this className exists [NON-STRICT MODE]
+			'attribute'[on](this[i])('my-example-attribute')							//check if this attribute exists [NON-STRICT MODE]	
+
+			console.log('[STRICT TESTING]');
+
+			'className'[on](this[i])() == 'my-example-className';					//check if this className equals [STRICT MODE]
+			'attribute'[on](this[i])('my-example-attribute') == 'my-example-value'	//check if this attribute equals [STRICT MODE]
+
+		}
+	);
+
+	'for each'[on](myElement)
+	(	function(i)
+		{
+			var test; 
+
+			console.log('[NON-STRICT TESTING B]');
+			
+			console.log(		'classNames'[on](this[i])('my-example-className1 my-example-className')			);				//check if this classNames exists [NON-STRICT MODE]
+
+		}
+	);	
+
+	/*****************************************\
+					Error Outs
+	\*****************************************/	
+	console.log(		'test func'[on](myInteger)('exec1','a','b','c')					);
+	console.log(		'broken command'[on](myElement)('should break')					);
+
+	/*****************************************/
+		console.log('_______Ajax_______');
+	/*****************************************/
+	
+	var myURL1 	= 'http://website.url/example/ajax/GET.php';
+	var myURL2 	= 'http://website.url/example/ajax/POST.php';
+	var myScript= 'http://website.url/example/ajax/script.js';
+
+			('GET')[on](myURL1+'?var1=true&var2=true')
+			(	function(pass)
+				{
+					console.log('GET?vars');
+					console.log(this.GET);
+					console.log(this.responseText);
+				}
+			);
+
+			('POST')[on](myURL2)
+			(	function(pass)
+				{
+					console.log('POST');
+					console.log(this.responseText);
+				}
+			);
+
+			('POST var1=true&var2=false')[on](myURL2)
+			(	function(pass)
+				{
+					console.log('POST vars');
+					console.log(this.POST)
+					console.log(this.responseText);
+				}
+			);
+
+			('GET var1=true&var2=false')[on](myURL1)
+			(	function(pass)
+				{
+					console.log('GET vars');
+					console.log(this.GET)
+					console.log(this.responseText);
+				}
+			);
+			
+			('POST var1=true')[on](myURL2+'?var2=false')
+			(	function(pass)
+				{
+					console.log('GET?vars');
+					console.log(this.GET);
+					console.log('POST vars');
+					console.log(this.POST);
+					console.log(this.responseText);
+				}
+			);
+			
+			var private_test = {'private_test':false};
+			
+			var test_func = function(){console.log(private_test)};
+			
+			'load script'[on](myScript)
+			(	function()
+				{	
+					console.log('load script');
+					console.log('this is a loaded module');
+					console.log('this callback function is executed once the script has completed loading');
+					console.log(private_test);
+					console.log(this.public_test);
+					test_func();
+				}
+			);
+			
+			'load module'[on](myScript)
+			(	function()
+				{	
+					console.log('load module public');
+					console.log('this is a publicly loaded module');
+					console.log('this callback function is executed within the public scope of the module');
+					console.log(private_test);
+					console.log(this.public_test);
+					test_func();
+				}
+			);
+			
+			'load module'[on](myScript)
+			(	function(private)
+				{	
+					console.log('load module private');
+					console.log('this is a privately loaded module');
+					console.log('this callback function is executed within the private scope of the module');
+					console.log(private_test);
+					console.log(this.public_test);
+					test_func();
+				}
+			);
+
+/*
+	'each'[on](document)
+	(	'my-example-className'
+	,	function(i)
+		{	
+			console.log(i);
+			console.log(this[i]);
+		}
+	);
+*/
+
+/*
+	'pad left' [on](myInteger)(3);
+	'stop prop'[on](window.event)();
+	'split any'[on](myString)(' ');
+	'for each' [on](myArray)
+	(	function(i)
+		{
+			console.log(this[i])
+		}
+	);
+	'offsetTop'[on](myElement)('px');
+	'scrollTop'[on](myElement)('px');
+	'nextElementSibling'[on](myElement)
+	(	function(i)
+		{
+			return (this[i].id == 'something');
+		}
+	);
+*/
+	//*********** Possible | eachElementByClassName >< eachElementByAttribute | Implementations ***********//
+
+
+
+
+
+
+};
+
+</script>
+
+<body>
+
+	<div id="container" class='my-example-className my-example-className3 my-example-className1' my-example-attribute='my-false-value'>
+	
+		<div class='div2'>
+			<span class='span my-example-className' my-example-attribute='my-example-value'>
+			</span>
+		</div>
+	</div>
+
+	<div id="container2" class='my-example-className my-example-className3 my-example-className1' my-example-attribute='my-false-value'>
+	
+		<div class='div2'>
+			<span class='span my-example-className' my-example-attribute='my-example-value'>
+			</span>
+		</div>
+	</div>
+
+</body>
+
+</html>

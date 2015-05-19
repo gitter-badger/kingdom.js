@@ -1,0 +1,353 @@
+<!html>
+
+
+<script src='../../script/lib/on.js'></script>
+<script>
+
+onload = function()
+{	
+
+	/*
+	
+	Example Uses
+	
+	*/
+
+	
+/**\	on.js
+\**/
+/**\	(c)	2014
+\**/
+
+	
+/**\	each Elements By ClassName			*(the long way)		//technically does the same thing with a lot more overhead and syntax
+\**/
+/**\	Submit Form
+\**/
+
+//	Pro:	
+//			a.)	you can run whatever you want on each element with the that class
+//	Con:	
+//			b.) additional overhead if all you want is an event bound
+
+on.document.eachElementByClassName	//the elements [for more possibilities, see "class.html" or "attribute.html" or "dom.html"]
+(	'SubmitForm'
+,	function(i)
+	{	
+		('mouseup')[on](this[i])	//the "mouseup" on each element
+		(	function(e)
+			{	
+				('POST')[on](this)	//the page to post form data to
+				(	function()
+					{
+						console.log('("POST")[on](this) byClassName');
+						console.log(this.responseText);
+					}
+				);
+			}
+		);
+	}
+);
+
+/**\        Get (Live) Elements By ClassName        *(the time-travel way)                //this binds mouseup to all matching elements, even ones to be created in the future
+\**/
+/**\        Submit Form
+\**/
+
+('mouseup')[on](document)
+(	function()
+	{
+		if(on.element.hasClass.call(this,'SubmitForm'))
+		('POST')[on](this)
+		(	function()
+			{
+				console.log('("POST")[on](this) document');
+				console.log(this.responseText);
+			}
+		);
+	}
+);
+
+/**\        Get (Current) Elements By ClassName        					//this binds mouseup to all matching elements currently existing
+\**/
+/**\        Submit Form
+\**/
+
+var anySubmit = on.document.getElementsByClassName('SubmitForm');
+('mouseup')[on](anySubmit)
+(	function()
+	{
+		('POST')[on](this)
+		(	function()
+			{
+				console.log('("POST")[on](this)');
+				console.log(this.responseText);
+			}
+		);
+	}
+);
+
+var anySubmit = on.document.getElementsByClassName('SubmitForm');
+('mouseup')[on](anySubmit)
+(	function()
+	{
+		on.form.submit.call
+		(	this
+		,	function()
+			{
+				console.log('on.form.submit.call');
+				console.log(this.responseText);
+			}
+		);
+	}
+);
+
+
+
+
+/**\	each Elements By ClassName			*(the long way)	
+\**/
+/**\	Submit Form
+\**/
+
+//	Pro:	
+//			a.)	you can run whatever you want on each element with the that class
+//	Con:	
+//			b.) additional overhead if all you want is an event bound
+
+on.document.eachElementByClassName	//the elements [for more possibilities, see "class.html" or "attribute.html" or "dom.html"]
+(	'Form'
+,	function(i)
+	{	
+		('submit')[on](this[i])	//the "mouseup" on each element
+		(	function(e)
+			{	
+				on.event.preventDefault.call(e);
+				
+				('POST')[on](this)	//the page to post form data to
+				(	function()
+					{
+						console.log('("POST")[on](this) byClassName');
+						console.log(this.responseText);
+					}
+				);
+			}
+		);
+	}
+);
+
+/**\        Get (Current) Elements By ClassName        					//this binds mouseup to all matching forms currently existing
+\**/
+/**\        Submit Form
+\**/
+
+var anyForm = on.document.getElementsByClassName('Form');
+('submit')[on](anyForm)
+(	function(e)
+	{
+		on.event.preventDefault.call(e);
+	
+		('POST')[on](this)
+		(	function()
+			{
+				console.log('("POST")[on](this)');
+				console.log(this.responseText);
+			}
+		);
+	}
+);
+
+var anyForm = on.document.getElementsByClassName('Form');
+('submit')[on](anyForm)
+(	function(e)
+	{
+		on.event.preventDefault.call(e);
+
+		on.form.submit.call
+		(	this
+		,	function()
+			{
+				console.log('on.form.submit.call');
+				console.log(this.responseText);
+			}
+		);
+	}
+);
+
+
+
+/**\	MORE CLASSNAME EXAMPLES
+\**/
+/**\	see "class.html"
+\**/
+
+//	...
+//	getElementsByClassPrefix
+//	getElementsByClassSuffix
+//	getElementsByClassContains
+//	eachElementByClassPrefix
+//	eachElementByClassSuffix
+//	eachElementByClassContains
+//	on.element.hasClass
+//	on.element.addClass
+//	on.element.delClass
+//	...
+
+/**\	MORE ATTRIBUTE EXAMPLES
+\**/
+/**\	see "attribute.html"
+\**/
+
+//	...
+//	getElementsByAttribute	(non-strict)
+//	getElementsByAttribute	(strict)
+//	eachElementByAttribute	(non-strict)
+//	eachElementByAttribute	(strict)
+//	...
+
+/**\	MORE DOM EXAMPLES
+\**/
+/**\	see "dom.html"
+\**/
+
+//	...
+//	getElementsByTagName
+//	eachElementByTagName
+//	on.element.hasTagBody
+//	('for each')[on](document)				//	('for each')[on](element)
+//	('for each child')[on](document)		//	('for each child')[on](element)
+//	('for each span')[on](document)			//	('for each span')[on](element)
+//	('for each child span')[on](document)	//	...
+//	...
+
+/**\	MORE FORM DATA EXAMPLES
+\**/
+/**\	see "form.html"
+\**/
+
+//	...
+//	on.submit.getFormData		//	on.element.getSubmitFormData
+//	on.submit.getFormDataObject	//	on.element.getSubmitFormDataObject
+//	on.submit.toFormData		//	on.element.toSubmitFormData
+//	...
+
+
+
+
+
+
+/**\	IGNORE THE FOLLOWING
+\**/
+/**\	no real reason for this...
+\**/
+
+
+//	The following are experimental ideas... not functional
+//	Pro:	
+//			a.)	kw "this" has been bound to an element constructor with default tools found in on.element
+//	Con:	
+//			b.) overhead
+//			c.)	may be syntactically useful for some cases, but reduces consistency (otherwise requiring on.element constructors)
+
+
+/**\	Get (Live) Elements By ClassName [...Experimental...]
+\**/
+/**\	Submit Form
+\**/
+
+/*
+('on.experimental.scope mouseup')[on](document)
+(	function(e)
+	{	//this = new on.element(this);
+		if(this.hasClass('SubmitForm'))
+		{
+			('POST'+data(this))[on](myURL)
+			(	function()
+				{
+				}
+			);
+		}
+	}
+);
+*/
+
+/**\	For Each Element [...Experimental...]
+\**/
+/**\	
+\**/
+
+/*
+('on.experimental.scope for each')[on](document)
+(	function(e)
+	{	//this = new on.element(this);
+		if(this.hasClass('my-experimental-class'))
+		{	//dosomestuff			
+		}
+	}
+);
+*/
+
+
+/**\	Ryan Stortz
+\**/
+/**\		Jan. 23
+\**/
+};
+
+
+</script>
+
+
+<body>
+
+	<form name="myForm" id="Form" class="Form" method="POST" action="http://website.url/example/ajax/POST.php" target="_new">
+		
+		<input type="text" name="myText" id="myText" value="true" />
+
+		<input type='text' name='myScript' value="document.write('abc');" />
+
+		<input type='file' name='myFile' />
+
+		<input type='hidden' name='myHidden' id='myHidden' value='maybe' />
+
+		<textarea name="myTextArea">false</textarea>
+
+		<input type='radio' name='myRadio' value='1' />
+		<input type='radio' name='myRadio' value='2' />
+		<input type='radio' name='myRadio' value='myThirdOption' />
+
+		<select name="mySelect[]" multiple>
+			<option value="1">my1stOption
+			</option>	
+			<option value="2">my2ndOption
+			</option>
+			<option>my3rdOption
+			</option>
+		</select>
+		
+		<button type="button" name="SubmitForm" id="SubmitForm" class="SubmitForm">ajax Submit</button>
+		
+		<button type="submit" name="" id="" class="">ajax form Submit</button>
+		
+	</form>
+
+	<form name="myForm" id="Form1">
+		
+		<input type="text" name="myText1" id="myText1" />
+		
+		<button type="button" name="SubmitForm" id="SubmitForm1" class="SubmitForm">ajax Submit</button>
+		
+	</form>
+
+	<form name="myForm" id="Form2">
+		
+		<input type="text" name="myText2" id="myText2" />
+		
+		<button type="button" name="SubmitForm" id="SubmitForm2" class="SubmitForm">ajax Submit</button>
+
+		
+	</form>
+
+</body>
+
+</html>

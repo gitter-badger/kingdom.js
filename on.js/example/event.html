@@ -1,0 +1,154 @@
+<!html>
+
+
+<script src='../script/lib/on.js'></script>
+<script>
+
+onload = function()
+{	
+
+	/*
+	
+	Example Uses
+	
+	*/
+	
+	var myElement = document.getElementById('container');
+	
+	var myClassName = on.document.getElementsByClassName('my-example-className my-example-className1');
+	
+			('mouseup')[on](myClassName)
+			(	function(e)
+				{	
+					console.log('byClassName')
+				}
+			);
+			
+	var myAttribute = on.document.getElementsByAttribute('my-example-attribute','my-false-value');
+			
+			('mouseup')[on](myAttribute)
+			(	function(e)
+				{	
+					console.log('byAttribute')
+				}
+			);
+	
+	
+			on.document.eachElementByClassName
+			(	'my-example-className my-example-className1'
+			,	function(i)
+				{	
+					('mouseup')[on](this[i])
+					(	function(e)
+						{	console.log('byClassName');
+						}
+					);
+				}
+			);
+			
+			on.document.eachElementByAttribute
+			(	'my-example-attribute'
+			,	'my-false-value'
+			,	function(i)
+				{	
+					('mouseup')[on](this[i])
+					(	function(e)
+						{	console.log('byAttribute');
+						}
+					);
+				}
+			);
+			/*
+			on.document.eachElementByTagBody
+			(	"<div class='silly'>"
+			,	function(i)
+				{	
+					('mouseup')[on](this[i])
+					(	function(e)
+						{
+						}
+					);
+				}
+			);
+			*/
+			('mouseup')[on](document)
+			(	callback = function(e){console.log(e)}
+			);
+			('mouseup')[on](document)
+			(	callback
+			);
+			('mouseup')[on](document)
+			(	callback
+			);
+			('mouseup')[on](document)
+			(	callback
+			);
+			('mouseup')[on](document)
+			(	callback
+			);
+			('mouseup')[on](document)
+			(	callback
+			);
+			('mouseup')[on](document)
+			(	function(e)
+				{	this;// == e.srcElement||e.target//
+					
+					console.log(this);
+					console.log('action was not prevented!');
+					
+					if(on.element.hasTag.call(this,"<div class='my-example-className3' my-example-attribute='my-false-value'>"))
+					{
+						//here's the silly code
+						console.log('hasSilliness');
+					}
+					if(on.element.hasClass.call(this,'my-example-className'))
+					{
+						//here's the less-silly code
+						console.log('hasClass');
+					}
+					if(this.getAttribute('my-example-attribute')=='my-false-value')
+					{
+						//here's the by attribute code
+						console.log('hasAttribute');
+					}
+				}
+			);			
+			('mouseup')[on](myElement)
+			(	function(e)
+				{	this;// == myElement//
+					on.event.preventDefault.call(e);
+					//on.event.stopPropagation.call(e);
+					//console.log('default prevented and propagation cancelled');
+				}
+			);
+	
+	
+};
+
+</script>
+
+
+<body>
+
+	<div id="container" class='my-example-className my-example-className3 my-example-className1' my-example-attribute='my-false-value' style='width:500px;height:100px;background:blue;color:white'>abc
+	
+		<div class='div2'>
+			<span class='span my-example-className' my-example-attribute='my-example-value'>
+			</span>
+		</div>
+	</div>
+
+	<div id="container2" class='my-example-className my-example-className3 my-example-className1' my-example-attribute='my-false-value'>
+	
+		<div class='div2'>
+			<span class='span my-example-className' my-example-attribute='my-example-value'>
+			</span>
+		</div>
+	</div>
+
+</body>
+
+</html>
+
+
+

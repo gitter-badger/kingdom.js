@@ -1,0 +1,151 @@
+<!html>
+
+
+<script src='../script/lib/on.js'></script>
+<script>
+
+onload = function()
+{	
+
+	/*
+	
+	Example Uses
+	
+	*/
+	
+	var myElement = document.getElementById('container');
+	
+	
+console.log
+(
+	on.document.getElementsByClassName('my-example-className')
+);
+console.log
+(
+	on.document.getElementsByClassName.call(myElement,'my-example-className')
+);
+
+on.document.eachElementByClassName
+(	'my-example-className'
+,	function(i)
+	{
+		on.element.addClass.call(this[i],'select_me');
+	}
+);
+	
+
+console.log
+(
+	on.element.delClass.call(document.getElementById('container'),'my-example-className3')
+);
+console.log
+(
+	on.element.delClass.call(document.getElementById('container').className,'my-fake-className1')
+);
+	
+	
+console.log
+(
+	on.document.getElementsByAttribute('my-example-attribute')
+);
+
+console.log
+(
+	on.document.getElementsByAttribute('my-example-attribute','my-false-value')
+);
+
+console.log
+(
+	on.document.eachElementByAttribute
+	(	'my-example-attribute'
+	,	false
+	,	function(i)
+		{
+			this[i].setAttribute('test_abc',i);
+		}
+	)
+);
+	
+	
+console.log
+(
+	on.document.eachElementBy.className
+	(	'my-example-className'
+	,	function(i)
+		{
+			if(this[i].getAttribute('test_abc')==5)
+				return true;
+		
+			if(this[i].getAttribute('test_abc')==8)
+				return false;
+				
+			this[i].setAttribute('test_xyz',i);
+		}
+	)
+);
+
+console.log
+(
+	on.document.eachElementByAttribute.call
+	(	myElement
+	,	'my-example-attribute'
+	,	false
+	,	function(i)
+		{
+			this[i].setAttribute('test_123',i);
+		}
+	)
+);
+	
+	
+console.log
+(
+	on.document.getElementById('container2')
+);
+
+console.log
+(
+	on.document.eachElementByTagName
+	(	'span'
+	,	function(i)
+		{
+			console.log(this[i]);
+		}
+	)
+)
+	
+	
+console.log
+(
+
+	on.element.hasTag.call(myElement,"<div class='my-example-className1 select_me' my-example-attribute='my-false-value'>")
+
+)
+	
+	
+};
+
+</script>
+
+
+<body>
+
+	<div id="container" class='my-example-className my-example-className3 my-example-className1' my-example-attribute='my-false-value'>
+	
+		<div class='div2'>
+			<span class='span my-example-className' my-example-attribute='my-example-value'>
+			</span>
+		</div>
+	</div>
+
+	<div id="container2" class='my-example-className my-example-className3 my-example-className1' my-example-attribute='my-false-value'>
+	
+		<div class='div2'>
+			<span class='span my-example-className' my-example-attribute='my-example-value'>
+			</span>
+		</div>
+	</div>
+
+</body>
+
+</html>

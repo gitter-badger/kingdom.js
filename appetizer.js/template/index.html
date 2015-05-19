@@ -1,0 +1,146 @@
+<html>
+<head>
+	
+	<title>
+		Curv Dashboard
+		</title>
+
+	<script src="../script/lib/host/light.on.js"></script>
+	<script src="../script/lib/host/appetizer.js"></script>
+	<script src="../script/lib/util/migrate.js"></script>
+	<script src="../script/lib/serv/curv-analytics.js"></script>
+	<script src="../script/app/core/curv-dashboard.js"></script>
+	
+	<script>
+		onload = function ()
+		{
+			dom  = document;
+			byid = 'getElementById';
+			tags = 'getElementsByTagName';
+
+			dash.core.init
+			(
+				{
+					Id	:	"curv-dashboard"
+				}
+			)
+		}
+	</script>
+	
+	<link href="../style/3d/space.css" type='text/css' rel='stylesheet' />
+	<link href="../style/3d/plasma.css" type='text/css' rel='stylesheet' />
+	<link href="../style/3d/entity.css" type='text/css' rel='stylesheet' />
+	
+	<style>
+.ent.M
+{
+	background-color: rgba(255,0,255,.05);
+	border-color	: rgba(0,255,255,0.5);
+}
+
+.tag .ent.x
+{
+	background-color: rgba(0,255,255,0.5);
+	border-color	: rgba(0,255,255,0.5);
+}
+
+.tag .ent > .hover
+{
+	display : none;
+}
+
+.tag .ent:hover > .hover
+{
+	display : block;
+}
+
+[appetizer] [template]
+{
+	display : none;
+}
+	</style>
+	
+</head>
+<body>
+	
+	<div class="space" id="curv-dashboard-app">
+		<div axes="['0px', '0px', '-500px']">
+		
+			<!-- curv-graph-widget-[index] -->
+			<!-- curv-graph-data-[index] -->
+			
+		</div>
+		<div axes="['0px', '0px', '-500px']">
+
+			<div class="location tag" id="curv-dashboard-hand">
+			<div class="rotation tag">
+				
+					<div class="ent z">
+						pointer
+					</div>
+					<div class="ent y">
+					</div>
+					<div class="ent x">
+					</div>
+					
+			</div>
+			</div>
+		
+		</div>
+	</div>
+	
+	<div id="curv-dashboard-ctrl">
+	<div id="curv-dashboard-opts">
+		
+		<button appetizer id="curv-graph-/terrain/default/">
+			<div entree>
+				Terrain Map
+			</div>
+			<div recipe>
+				
+				<div class="location tag" id="curv-graph-widget">
+				<div class="rotation tag">
+
+							<div class="rotation tag" id="curv-graph-data">
+							<div class="rotation tag">
+								<canvas curv-attribute="special-flag">
+								</canvas>
+							</div>
+							</div>
+							
+							<div class="ent z L">
+								<div class="hover">
+									widgets
+								</div>
+							</div>
+								
+							<div class="ent x dn L">
+								<div class="hover">
+									widgets
+								</div>
+							</div>
+							
+							<div class="ent x dn M">
+								<div class="hover">
+									widgets
+								</div>
+							</div>
+							
+							<div class="ent x up XM">
+								<div class="hover">
+									widgets
+								</div>
+							</div>
+
+				</div>
+				</div>
+		
+			</div>
+		</button>
+			
+	</div>
+	</div>
+	
+	
+</body>
+</html>

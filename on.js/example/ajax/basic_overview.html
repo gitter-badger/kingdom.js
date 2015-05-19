@@ -1,0 +1,146 @@
+<!html>
+
+
+<script src='../../script/lib/on.js'></script>
+<script>
+
+onload = function()
+{	
+
+	/*
+	
+	Example Uses
+	
+	*/
+
+	
+/**\	on.js
+\**/
+/**\	(c)	2014
+\**/
+
+	
+/**\	basic "GET"
+\**/
+/**\	fetch content
+\**/
+
+('GET')[on]("../ajax/get/url/")						//the page to get
+(	function()
+	{
+		console.log(this.responseText);				//the content fetched
+	}
+);
+
+/**\	"GET" with variables		(first way)
+\**/
+/**\	fetch content
+\**/
+
+('GET')[on]("../ajax/get/url/?applesauce=true")		//the page to get
+(	function()
+	{
+		console.log(this.responseText);				//the content fetched
+	}
+);
+
+/**\	"GET" with variables		(second way)
+\**/
+/**\	fetch content
+\**/
+
+('GET applesauce=true')[on]("../ajax/get/url/")		//the page to get
+(	function()
+	{
+		console.log(this.responseText);				//the content fetched
+	}
+);
+
+/**\	basic "POST"
+\**/
+/**\	fetch content
+\**/
+
+('POST')[on]("../ajax/post/url/")					//the page to post to
+(	function()
+	{
+		console.log(this.responseText);				//the content fetched
+	}
+);
+
+/**\	"POST" with variables		(standard way)
+\**/
+/**\	fetch content
+\**/
+
+('POST applesauce=true')[on]("../ajax/post/url/")	//the page to post to
+(	function()
+	{
+		console.log(this.responseText);				//the content fetched
+	}
+);
+
+/**\	"POST" & "GET" with variables		(standard way)
+\**/
+/**\	fetch content
+\**/
+
+('POST applesauce=true')[on]("../ajax/post/url/?topic=food")	//the page to post/get
+(	function()
+	{
+		console.log(this.responseText);							//the content fetched
+	}
+);
+
+
+
+
+	/*
+	
+	Practical Uses
+	
+	*/
+
+	
+	
+	
+/**\	"POST" & "GET" with variables		(standard way)
+\**/
+/**\	fetch content to a DIV
+\**/
+
+('POST favorite=applesauce')[on]("../ajax/post/url/?topic=food")	//the page to post/get
+(	function()
+	{	//the content fetched
+		document.getElementById('ajaxContent').innerHTML = this.responseText;
+	}
+);
+
+/**\	"POST" & "GET" with variables		(one-liner way)
+\**/
+/**\	fetch content to a DIV
+\**/
+
+('POST favorite=applesauce')[on]("../ajax/post/url/?topic=food")(function(){document.getElementById('ajaxContent').innerHTML=this.responseText});
+	
+	
+	
+/**\	Ryan Stortz
+\**/
+/**\		Jan. 23
+\**/
+};
+
+</script>
+
+
+<body>
+
+	<div id="ajaxContent"></div>
+
+</body>
+
+</html>
+
+
+
