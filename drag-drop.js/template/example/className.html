@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+
+	<head>
+		<title>[className] dropsort.js</title>
+		<script src="../../script/app/define.js"></script>
+		<script>
+			var app = new App({root:'../../script/lib/'});
+			app.start(app.create('drag-drop/default',{mode:'className'}));
+		</script>
+		<style>
+		
+			#parent1, 
+			#parent2, 
+			#parent3
+			{	
+				background	:	blue;
+				width		:	90%;
+				height		:	200px;
+				
+			}
+			
+			#parent1 > div, 
+			#parent2 > div, 
+			#parent3 > div
+			{
+				width		:	90%;
+				height		:	75px;
+				margin		:	10px;
+			}
+			
+			.h-hold
+			{
+				background	:	black;
+				height		:	5px;
+			}
+			
+			.h-drag
+			{	margin		:	0px;
+			}
+		
+			#p1_child1
+			{	background	:	brown;
+			}
+			
+			#p1_child2
+			{	background	:	orange;
+			}
+			
+			#p2_child1
+			{	background	:	yellow;
+			}
+			
+			#p2_child2
+			{	background	:	white;
+			}
+
+			#p3_child1
+			{	background	:	green;
+			}
+
+			#p3_child2
+			{	background	:	pink;
+			}		
+		</style>
+	</head>
+	
+	<body>
+		
+		<div id='parent1' class='h-parent-a'>
+		
+			<div id='p1_child1' class='h-child-a'> a
+			</div>
+			
+			<div id='p1_child2' class='h-child-a'> a
+			</div>
+		
+		</div>
+		
+		<div id='parent2' class='h-parent-b'>
+			
+			<div id='p2_child1' class='h-child-b'> b
+			</div>
+			
+			<div id='p2_child2' class='h-child-b'> b
+			</div>
+		
+		</div>
+
+		<div id='parent3' class='h-parent-a h-parent-b'>
+
+			<div id='p3_child1' class='h-child-a h-child-b'>
+				a & b
+			</div>
+
+			<div id='p3_child2' class='h-child-b h-child-a'>
+				b & a
+			</div>
+
+		</div>
+		
+	</body>
+	
+</html>

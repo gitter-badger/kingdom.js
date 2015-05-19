@@ -1,0 +1,131 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+
+	<head>
+		<title>[Attribute] dropsort.js</title>
+		<script src="../../script/app/define.js"></script>
+		<script>
+			var app = new App({root:'../../script/lib/'});
+			app.start(app.create('drag-drop/default',{'mode':'attribute'}));
+		</script>
+		<style>
+		
+			.banner
+			{	
+				background	:	blue;
+				width		:	90%;
+				height		:	200px;
+				
+			}
+			
+			.banner > .row, .banner > .h-hold
+			{
+				width		:	90%;
+				height		:	75px;
+				margin		:	10px;
+			}
+			
+			.icon, .icons > .h-hold
+			{
+				width		:	63px;
+				height		:	63px;
+				
+				border		:	2px solid red;
+				float		:	left;
+				margin		:	4px;
+			}
+			
+			.links > .h-hold
+			{
+				width		:	0px;
+				height		:	0px;
+				margin		:	0px;
+				padding		:	0px;
+				float		:	left;
+			}
+			
+			
+			.h-hold
+			{
+				background	:	black;
+				height		:	5px;
+			}
+			
+			.h-drag
+			{	margin		:	0px;
+			}
+		
+			.row.vertical
+			{	background	:	brown;
+			}
+			
+			#p1_child2
+			{	background	:	orange;
+			}
+			
+			#p2_child1
+			{	background	:	yellow;
+			}
+			
+			#p2_child2
+			{	background	:	white;
+			}
+		
+		</style>
+	</head>
+	
+	<body>
+		
+		<div class='banner' h-parent='row'>
+			<div class='row vertical icons' h-child='row' h-parent='item' h-parent-mode='x'>
+				<div class='icon left' h-child='item' >1</div>
+				<div class='icon left' h-child='item' >2</div>
+				<div class='icon left' h-child='item' >3</div>
+				<div class='icon left' h-child='item' >4</div>
+				<div class='icon left' h-child='item' >5</div>
+				<div class='icon left' h-child='item' >6</div>
+				<div class='icon left' h-child='item' >7</div>
+			</div>
+			<div class='row vertical links' h-child='row' h-parent='item' h-parent-mode='x'>
+				<a class='link left' h-child='item'>link item # 1</a>
+				<a class='link left' h-child='item'>link item # 2</a>
+				<a class='link left' h-child='item'>link item # 3</a>
+				<a class='link left' h-child='item'>link item # 4</a>
+				<a class='link left' h-child='item'>link item # 5</a>
+				<a class='link left' h-child='item'>link item # 6</a>
+				<a class='link left' h-child='item'>link item # 7</a>
+			</div>
+		</div>
+		
+		<div class='panel' h-parent=''>
+			<div class='widget' h-child='' h-parent=''>
+			</div>
+			<div class='widget' h-child='' h-parent=''>
+			</div>
+		</div>
+		
+		<div class='dashboard' h-parent='' h-parent-mode='y'>
+			<div class='column' h-child='' h-parent=''>
+				<div class='module' h-child=''>
+				</div>
+				<div class='module' h-child=''>
+				</div>
+			</div>
+			<div class='column' h-child='' h-parent=''>
+				<div class='module' h-child=''>
+				</div>
+				<div class='module' h-child=''>
+				</div>
+			</div>
+			<div class='column' h-child='' h-parent=''>
+				<div class='module' h-child=''>
+				</div>
+				<div class='module' h-child=''>
+				</div>
+			</div>
+		</div>
+		
+	</body>
+	
+</html>

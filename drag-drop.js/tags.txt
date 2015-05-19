@@ -1,0 +1,138 @@
+Nested Tree Placer
+
+Classification/Categorization/Tag/Label/Relationship
+
+Rearrange/File/Sort/Order/Place/Drag-and-drop/Place-hold/Set/Index
+
+Layout/Tree/Element/Node/Module/List/Item/Tag/
+
+UI/UX/
+
+Nestable/Layer/sub*
+
+XY/Horizontal/Vertical/List/Axis/Grid/Array
+
+Classification/Nest/Index/Place-holder/File/UI/Module
+Classified-SubNode-Indexer.js
+Classified-SubModule-Indexer-UI.js
+Classified-SubLayout-Indexer-UI.js
+
+class-mod-id-		classified-module-indexer-ui.js
+classified-subModule-reindexer-ui.js
+class-submod-re-id-ui.js
+
+sortType.js		sort-type.js
+sortKind.js		sort-kind.js
+sortTag.js		sort-tag.js
+sortTags.js		sort-tags.js
+sortClass.js		sort-class.js
+sortcat.js		sort-cat.js
+
+kingDOM.js		king-dom.js
+sort-of-kind.js		kind-of-sort.js
+sorta-kinda.js		kinder-sorter.js
+
+tagPlace.js		tag-place.js
+catplace.js		cat-place.js
+classplace.js		class-place.js
+
+modclass.js		mod-class.js
+submodclass.js		submod-class.js
+
+subModule-sortClass.js	submod-sortclass.js
+
+subnodeplace.js		submod-placeholder.js
+
+modClassSortUI.js	modclass-sort-ui.js
+subModuleSortUI.js	submodule-sort-ui.js
+layoutSortUI.js		layout-sort-ui.js
+
+LayoutModuleSortUI.js	layout-module-sort-ui.js
+LayoutModuleSort.js	layout-module-sort.js
+placeModule.js		place-module.js
+to.js			to.js
+X-Y-module-Z.js		x-y-module-z.js	
+x-y-z-index.js		x-y-z-index.js
+indexyz.js		index-y-z.js
+
+
+layoutkey.js		
+freelayout.js
+livelayout.js
+flexlayout.js
+openlayout.js
+htmlkey.js
+htmlunlock.js
+dashboard.js
+flexframe.js
+reposition.js
+freeframe.js
+htmlblocks.js
+layoutblocks.js
+staticblocks.js
+livelayoutblocks.js
+liveblocks.js
+blueprint.js
+goldprint.js
+tinprint.js
+
+activelayout.js
+physicalayout.js
+stitchlayout.js
+lightninglayout.js
+layoutlove.js
+layerlove.js
+elayout.js
+
+ux-sort.js
+
+mr.potato-head.js
+mrs.potato-head.js
+mr.potato-html.js
+ux-potato-head.js
+
+modulemodifier.js
+layoutshift.js
+shiftlayout.js
+
+layer-arrayer.js
+ux-layer-arrayer.js
+dragTags.js		sort-child="link" sort-parent="link" sort-parent-axis="y"
+dragClass.js
+layoutlibertylib.js
+
+sortFamilies.js		.uncleNode="Scott"
+
+assort.js
+reorder.js
+anyplace.js
+set.js
+
+reorganize.js
+rearrange.js
+
+drag&drop.js			
+within.js
+
+
+Client
+ Rearrange Modules within a Template
+ Organize Widgets within a Dashboard
+
+
+ Modify layout of controls within a modget/widule.
+
+  Label elements with parent/child type(s).
+  Label parent elements by child axis (horizontal/vertical).
+
+  Move any child into a parent by matching labels.
+  Reorder any child within a parent of matching label.
+
+
+ Reorder/sort an item within a list
+ 
+
+Designers/Developers
+ Augment Inspection Capabilities with visual relocation.
+
+
